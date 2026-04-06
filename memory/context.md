@@ -2,24 +2,24 @@
 
 ## Overview
 
-<!-- What does this project do? Who uses it? -->
+FILL: What does this project do? Who uses it?
 
 ## Architecture
 
-<!-- High-level components and how they connect. -->
+FILL: High-level components and how they connect.
 
 ## Key Decisions
 
-<!-- Non-obvious decisions and why they were made. Prevents AI from "fixing" intentional choices. -->
+Non-obvious decisions that should not be "fixed" by an agent without context.
 
 | Decision | Reason |
 |----------|--------|
-| | |
+| FILL | FILL |
 
 ## Environments
 
 | Environment | URL / Location |
 |-------------|---------------|
-| Local | |
-| Staging | |
-| Production | |
+| Local | FILL |
+| Staging | FILL |
+| Production | FILL |

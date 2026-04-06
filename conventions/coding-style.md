@@ -9,32 +9,23 @@
 
 ## File Organization
 
-- [Describe how files and modules should be organized in this project]
-- [e.g., Feature folders vs. type folders]
+FILL: Describe file/module organization (e.g., feature folders vs. type folders).
 
 ## Formatting
 
-- [Formatter and version: e.g., Prettier 3.x, Black 24.x]
-- [Tab width, quote style, line length, etc.]
-- Formatting is enforced by CI. Run `[FORMAT COMMAND]` before committing.
+FILL: Formatter and version. Run command: `FILL`. Formatting is enforced by CI.
 
-## Language-specific rules
+## Language Rules
 
-### [Primary language]
-
-- [Rule 1]
-- [Rule 2]
-
-## What NOT to do
-
-- Do not add comments explaining what code does — write self-documenting code instead.
-- Do not add error handling for scenarios that cannot happen.
-- Do not add docstrings or type annotations to code you did not write.
-- Do not introduce abstractions for one-time use.
+FILL: Language-specific rules for this project.
 
 ## Linting
 
-- Linter: [e.g., ESLint, Ruff]
-- Config file: [e.g., .eslintrc.json]
-- Run: `[LINT COMMAND]`
-- CI will fail on lint errors. Fix them before committing.
+FILL: Linter, config file location, and run command. CI fails on lint errors.
+
+## DO NOT
+
+- Do not add comments explaining what code does — write self-documenting code.
+- Do not add error handling for scenarios that cannot happen.
+- Do not add docstrings or type annotations to code you did not write.
+- Do not introduce abstractions for one-time use.

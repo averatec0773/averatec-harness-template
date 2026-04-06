@@ -11,22 +11,22 @@ metadata:
 
 ## When to use this skill
 
-<!-- Describe the exact trigger condition. -->
+FILL: Describe the exact trigger condition (e.g., "before creating a branch or merging to main").
 
 ## Prerequisites
 
-- [ ] <!-- Prerequisite 1 -->
-- [ ] <!-- Prerequisite 2 -->
+- FILL: Prerequisite 1
+- FILL: Prerequisite 2
 
 ## Steps
 
-1. <!-- Step 1 -->
-2. <!-- Step 2 -->
+1. FILL: Step 1
+2. FILL: Step 2
 
 ## DO NOT
 
-- <!-- What to avoid -->
+- FILL: What to avoid
 
 ## Acceptance Criteria
 
-- [ ] <!-- How to verify the task is complete -->
+- FILL: How to verify the task is complete
