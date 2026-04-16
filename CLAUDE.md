@@ -18,9 +18,8 @@ This repo is a harness for AI-assisted project management. All files except `REA
 At the start of every session:
 
 1. Run `git fetch && git status` — confirm the local repo is up to date with remote. If behind, pull before proceeding.
-2. Read `memory/progress.md` — understand current state and next task.
-3. Run `git log --oneline -10` — orient to recent history.
-4. Confirm working directory before any write or destructive operation.
+2. Run `git log --oneline -10` — orient to recent history.
+3. Confirm working directory before any write or destructive operation.
 
 <!-- FILL: Add project-specific checks (e.g., verify a service is running, check env vars). -->
 
@@ -28,22 +27,21 @@ At the start of every session:
 
 1. Read the skill file before any dangerous or irreversible operation.
 2. Follow conventions. Do not invent new patterns unless explicitly asked.
-3. Add non-obvious discoveries to `memory/lessons.md`.
-4. Update `memory/progress.md` before ending a session.
+3. Read `memory/rules.md` — apply all standing rules for this project.
 
 ## Index
 
 ### Skills
-→ [SKILL_INDEX.md](skills/SKILL_INDEX.md)
-- [setup](skills/setup/SKILL.md)
-- [git](skills/git/SKILL.md)
-- [memory](skills/memory/SKILL.md)
-- [skill-creator](skills/skill-creator/SKILL.md)
+- [setup](.claude/skills/setup/SKILL.md)
+- [git](.claude/skills/git/SKILL.md)
+- [memory](.claude/skills/memory/SKILL.md)
+- [changelog](.claude/skills/changelog/SKILL.md)
+- [skill-creator](.claude/skills/skill-creator/SKILL.md)
 
 ### Conventions
 - [git-workflow](conventions/git-workflow.md)
 - [testing](conventions/testing.md)
 
 ### Memory
-- [context](memory/context.md)
-- [progress](memory/progress.md)
+- [rules](memory/rules.md)
+- [notes](memory/notes.md)

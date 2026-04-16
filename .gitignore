@@ -1,3 +1,6 @@
+# Personal (untrack to keep local: git rm --cached TODO.md)
+TODO.md
+
 # Environment
 .env
 .env.local
