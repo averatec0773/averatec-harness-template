@@ -1,13 +1,13 @@
 ---
-name: git
-description: Git operations including branching, committing, and merging
+name: template
+description: "When to trigger and what it does"
 metadata:
   version: 1.0.0
-  category: workflow
+  category: "operations | workflow | engineering"
   dangerous: false
 ---
 
-# Git Operations
+# [Skill Title]
 
 ## When to use this skill
 
@@ -25,8 +25,7 @@ metadata:
 
 ## DO NOT
 
-- Do not include Claude as a contributor or co-author in commits (e.g. no `Co-Authored-By: Claude` in commit messages).
-- Do not record AI-generated commit messages that mention Claude, Anthropic, or AI tooling.
+- <!-- What to avoid -->
 
 ## Acceptance Criteria
 
