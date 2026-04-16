@@ -25,6 +25,8 @@ The core idea comes from how safety harnesses work physically: they don't restri
 ```
 CLAUDE.md                      ← Entry point, auto-read by Claude Code
 README.md                      ← This file
+CHANGELOG.md                   ← Project change history
+TODO.md                        ← Personal task list (gitignored in active projects)
 
 .claude/
   skills/                      ← Auto-loaded by Claude Code
@@ -34,7 +36,7 @@ README.md                      ← This file
     changelog/                 ← When and how to update CHANGELOG.md
     skill-creator/             ← How to create and improve skills
 
-conventions/                   ← Standards the AI developer must follow
+conventions/
   git-workflow.md
   testing.md
 
