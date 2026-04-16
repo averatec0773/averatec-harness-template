@@ -53,6 +53,6 @@ memory/                 ← Persistent project context
 
 ### Inspiration and references
 
-- [Harness Engineering](https://openai.com/index/harness-engineering/) — OpenAI
-- [Harness Design for Long-Running Apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic
-- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic
+- [Harness Engineering](https://openai.com/index/harness-engineering/)
+- [Harness Design for Long-Running Apps](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
