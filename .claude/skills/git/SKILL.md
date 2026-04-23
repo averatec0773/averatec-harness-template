@@ -1,8 +1,8 @@
 ---
 name: git
-description: Git operations including branching, committing, and merging
+description: Git operations — pushing code, creating branches, committing, opening PRs, merging to main, or any remote operation. TRIGGER when user asks to push, commit, branch, PR, or merge.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   category: workflow
   dangerous: false
 ---
@@ -11,7 +11,7 @@ metadata:
 
 ## When to use this skill
 
-FILL: Describe the exact trigger condition (e.g., "before creating a branch or merging to main").
+Before any git operation: pushing code to remote, creating a branch, committing, opening a PR, or merging to main.
 
 ## Prerequisites
 
