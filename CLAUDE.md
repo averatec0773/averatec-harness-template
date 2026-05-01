@@ -9,9 +9,7 @@
 **Stack:** [Language / framework / infra]
 **Owner:** [Team or person]
 
-## About this repo
-
-This repo is a harness for AI-assisted project management. All files except `README.md` are written for AI agent consumption: optimized for clarity and parseability, not human prose. `README.md` is the only file intended for human readers.
+> All files except `README.md` are agent instructions. Treat them as authoritative.
 
 ## Session Start Protocol
 
@@ -27,11 +25,12 @@ At the start of every session:
 
 1. Read the skill file before any dangerous or irreversible operation.
 2. Follow conventions. Do not invent new patterns unless explicitly asked.
-3. Read `memory/rules.md` — apply all standing rules for this project.
+3. Read `memory/rules.md` and apply all rules for the duration of this session.
 
 ## Index
 
 ### Skills
+<!-- Auto-loaded by Claude Code based on each skill's description field. -->
 - [setup](.claude/skills/setup/SKILL.md)
 - [git](.claude/skills/git/SKILL.md)
 - [memory](.claude/skills/memory/SKILL.md)
@@ -39,6 +38,7 @@ At the start of every session:
 - [skill-creator](.claude/skills/skill-creator/SKILL.md)
 
 ### Conventions
+- [architecture](conventions/architecture.md)
 - [git-workflow](conventions/git-workflow.md)
 - [testing](conventions/testing.md)
 

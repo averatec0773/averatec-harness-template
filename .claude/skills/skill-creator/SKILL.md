@@ -81,4 +81,4 @@ When a skill produces bad results or doesn't trigger:
 - [ ] `description` covers when to trigger, not just what it does
 - [ ] Steps have enough context that a new AI developer can follow them without guessing
 - [ ] `dangerous: true` set in metadata if any step is irreversible
-- [ ] Added a row to `skills/SKILL_INDEX.md`
+- [ ] Skill file is placed under `.claude/skills/<name>/SKILL.md`
