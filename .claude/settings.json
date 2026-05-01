@@ -1,18 +1,7 @@
 {
   "permissions": {
     "defaultMode": "acceptEdits",
-    "allow": [
-      "Read",
-      "Edit",
-      "Write",
-      "Bash(git *)",
-      "Bash(make *)",
-      "Bash(grep *)",
-      "Bash(find *)",
-      "Bash(ls *)",
-      "Bash(cat *)",
-      "Bash(echo *)"
-    ],
+    "allow": [],
     "deny": [
       "Read(./.env*)",
       "Bash(rm -rf *)",
