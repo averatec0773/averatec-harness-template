@@ -30,7 +30,7 @@ At the start of every session:
 ## Settings
 
 - Shared permissions → [.claude/settings.json](.claude/settings.json)
-- Personal overrides → `.claude/settings.local.json` (gitignored)
+- Personal overrides → `.claude/settings.local.json` (gitignored, auto-created on first session from `.claude/settings.local.json.example`)
 
 ## Index
 

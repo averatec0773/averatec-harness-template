@@ -1,0 +1,10 @@
+{
+  "//": "Personal overrides — gitignored, not committed. Add rules that apply only to your local environment.",
+  "permissions": {
+    "allow": [
+      "FILL: e.g. Bash(python *)",
+      "FILL: e.g. WebFetch(domain:your-internal-service.com)"
+    ],
+    "deny": []
+  }
+}
