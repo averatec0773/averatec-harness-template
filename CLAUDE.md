@@ -27,6 +27,11 @@ At the start of every session:
 2. Follow conventions. Do not invent new patterns unless explicitly asked.
 3. Read `memory/rules.md` and apply all rules for the duration of this session.
 
+## Settings
+
+- Shared permissions → [.claude/settings.json](.claude/settings.json)
+- Personal overrides → `.claude/settings.local.json` (gitignored)
+
 ## Index
 
 ### Skills

@@ -1,5 +1,6 @@
 # Personal (untrack to keep local: git rm --cached TODO.md)
 TODO.md
+.claude/settings.local.json
 
 # Environment
 .env
