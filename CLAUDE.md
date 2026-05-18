@@ -36,17 +36,21 @@ At the start of every session:
 
 ### Skills
 <!-- Auto-loaded by Claude Code based on each skill's description field. -->
-- [setup](.claude/skills/setup/SKILL.md)
-- [git](.claude/skills/git/SKILL.md)
-- [memory](.claude/skills/memory/SKILL.md)
-- [changelog](.claude/skills/changelog/SKILL.md)
-- [skill-creator](.claude/skills/skill-creator/SKILL.md)
+- [memory](.claude/skills/memory/SKILL.md) — record/recall rules and discoveries
+- [harness](.claude/skills/harness/SKILL.md) — keep CHANGELOG / ROADMAP / conventions in sync
+- [skill-creator](.claude/skills/skill-creator/SKILL.md) — author or revise skills
 
 ### Conventions
-- [architecture](conventions/architecture.md)
-- [git-workflow](conventions/git-workflow.md)
-- [testing](conventions/testing.md)
+- [architecture](conventions/architecture.md) — directory map, layering rules, what NOT to change
+- [style](conventions/style.md) — visual / UX direction: tokens, components, patterns
+
+### Roadmap & history
+- [ROADMAP](ROADMAP.md) — pending work, by version
+- [CHANGELOG](CHANGELOG.md) — what shipped, per version
 
 ### Memory
-- [rules](memory/rules.md)
-- [notes](memory/notes.md)
+- [rules](memory/rules.md) — standing project rules; read every session
+- [notes](memory/notes.md) — discoveries and session notes
+
+### Docs
+- `docs/` — long-form specs, plans, design notes (organize per project)
