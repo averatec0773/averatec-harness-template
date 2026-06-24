@@ -79,6 +79,16 @@ Section order when present: `Architecture` → `Added` → `Changed` → `Fixed`
 
 Harness-only changes (skill updates, convention restructure, template tweaks) → prefix entries with `[harness]`.
 
+## Rolling archive (CHANGELOG)
+
+Keep `CHANGELOG.md` scannable. When it exceeds **~10 released versions or ~250 lines**:
+
+1. Move the oldest version series into `changelog/0.X.Yx.md` (e.g. `0.0.0x.md` for v0.0.1–v0.0.9).
+2. Add a row to the index in [changelog/README.md](../../../changelog/README.md).
+3. Leave an "Older releases → `changelog/`" pointer at the bottom of `CHANGELOG.md`.
+
+Only archive *released* versions; never move the `[Unreleased]` section. The newest entries always stay in `CHANGELOG.md`.
+
 ## DO NOT
 
 - Do not vague-describe ("fixed bug" — useless). State the symptom and what was changed.

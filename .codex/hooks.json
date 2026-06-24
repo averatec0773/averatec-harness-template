@@ -1,0 +1,16 @@
+{
+  "//": "Mirrors the Claude SessionStart git-status hook in .claude/settings.json. Codex has no $CLAUDE_PROJECT_DIR, so resolve the repo root via git.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "repo=$(git rev-parse --show-toplevel 2>/dev/null || pwd); cd \"$repo\" && echo \"[harness] branch: $(git branch --show-current 2>/dev/null || echo 'n/a') | uncommitted: $(git status --porcelain 2>/dev/null | wc -l | tr -d ' ') file(s)\""
+          }
+        ]
+      }
+    ]
+  }
+}

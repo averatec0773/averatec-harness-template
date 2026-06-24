@@ -12,7 +12,7 @@
 
 `averatec-harness-template` is a starting point for building a project harness: a structured repository that gives AI developers the context they need to operate consistently and safely within a codebase.
 
-> **Designed for [Claude Code](https://claude.ai/code).** Skills in `.claude/skills/` are auto-loaded by Claude Code and trigger based on their `description` field. `CLAUDE.md` at the project root is also read automatically at session start.
+> **Multi-agent: Claude Code + Codex.** Both agents read one shared spec — `AGENTS.md` is a symlink to `CLAUDE.md`. Claude Code auto-loads skills in `.claude/skills/` (triggered by each skill's `description`) and reads `CLAUDE.md` at session start; Codex reads `AGENTS.md` plus `.codex/` (config + hooks). Edit `CLAUDE.md` only — `AGENTS.md` follows automatically.
 
 ### What is a harness?
 
@@ -24,36 +24,50 @@ The core idea comes from how safety harnesses work physically: they don't restri
 
 ```
 CLAUDE.md                      ← Entry point, auto-read by Claude Code
+AGENTS.md                      ← Symlink to CLAUDE.md (read by Codex)
 README.md                      ← This file
 CHANGELOG.md                   ← Project change history
-TODO.md                        ← Personal task list (gitignored in active projects)
+ROADMAP.md                     ← Versioned plan of pending work
 
 .claude/
+  settings.json                ← Shared permissions + SessionStart hooks
+  settings.local.json.example  ← Personal-override template (copied on first session)
   skills/                      ← Auto-loaded by Claude Code
-    setup/                     ← Environment setup
-    git/                       ← Git operations
+    git/                       ← Commit risk classification + pre-commit checklist
+    harness/                   ← Keep CHANGELOG / ROADMAP / conventions in sync
     memory/                    ← When and how to update memory files
-    changelog/                 ← When and how to update CHANGELOG.md
     skill-creator/             ← How to create and improve skills
 
+.codex/
+  config.toml                  ← Codex agent config
+  hooks.json                   ← Mirrors the Claude SessionStart hook
+
 conventions/
-  git-workflow.md
-  testing.md
+  architecture.md              ← Directory map, layering rules, what NOT to change
+  style.md                     ← Visual / UX direction: tokens, components, patterns
+
+loop/
+  STATE.md                     ← Self-paced /loop state; single source of truth
+
+changelog/
+  README.md                    ← Archive index for older CHANGELOG series
 
 memory/
   rules.md                     ← Standing behavioral rules set by the user
   notes.md                     ← Discoveries and manually triggered notes
+
+docs/                          ← Long-form specs, plans, design notes
 ```
 
 ### How to use this template
 
-1. Create a new repo from this template.
-2. Replace all `[placeholder]` fields across these files:
-   - `CLAUDE.md` — project name, description, stack, owner
-   - `.claude/skills/setup/SKILL.md` and `.claude/skills/git/SKILL.md` — actual commands and steps
+1. Create a new repo from this template. (If you `cp` it rather than using GitHub's "Use this template", copy with symlink preservation — `cp -a` — so `AGENTS.md → CLAUDE.md` survives. Git needs `core.symlinks=true`; Windows needs Developer Mode.)
+2. Replace all `[placeholder]` and `FILL` fields across these files:
+   - `CLAUDE.md` — project name, description, stack, owner, Component Map
+   - `conventions/architecture.md` and `conventions/style.md` — your real architecture and design direction
 3. Update each skill with your project's real workflow.
 4. Remove this "About this template" section from the README and replace it with your project's own documentation.
-5. At the start of each AI session, point the AI developer to `CLAUDE.md`.
+5. At the start of each AI session, point the AI developer to `CLAUDE.md` (Claude Code) or `AGENTS.md` (Codex).
 
 ### Inspiration and references
 

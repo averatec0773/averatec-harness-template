@@ -2,6 +2,19 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.3.0] - 2026-06-24 — Multi-agent + loop support
+
+### [harness] Added
+- **Codex / multi-agent support** — `AGENTS.md` symlink → `CLAUDE.md` (one shared spec for both agents), plus `.codex/config.toml` (personality + `codex_hooks`) and `.codex/hooks.json` (mirrors the Claude SessionStart git-status hook). New `## Agents` section in `CLAUDE.md` explains the shared-spec model.
+- **Loop support (lightweight)** — `loop/STATE.md` template: single source of truth for the self-paced `/loop` (MODE flag, backlog table, status legend, DECISION-GATED gate). New `## Loop protocol` section in `CLAUDE.md` (read STATE → act → update → stop; gated items ask the user).
+- **`.claude/skills/git/`** — re-added as a workflow skill: low/high-risk classification matrix + pre-commit checklist that defers to the `harness` skill for doc sync (ported from averatec-website, generalized).
+- **`changelog/` archive** — `changelog/README.md` index + rolling rule; the `harness` skill now documents when to roll older series out of `CHANGELOG.md` (~10 versions / ~250 lines).
+- **Component Map** — `CLAUDE.md` gains a "to change X, edit Y" lookup-table skeleton (ported from averatec-website).
+
+### [harness] Changed
+- `CLAUDE.md` index restructured: added `git` skill, a `Loop` section, a `.codex` settings entry, and a `changelog/` archive pointer.
+- `README.md` "What's in this template" tree refreshed to current reality (removed stale `setup`/`changelog` skills and `git-workflow`/`testing` conventions; added `.codex/`, `loop/`, `changelog/`, `ROADMAP.md`, `docs/`). Use-this-template steps note symlink preservation and `core.symlinks`.
+
 ## [0.2.0] - 2026-05-17 — Template restructure
 
 ### [harness] Added

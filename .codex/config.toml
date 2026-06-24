@@ -1,0 +1,10 @@
+# Codex agent configuration.
+#
+# Codex reads the same spec as Claude: AGENTS.md is a symlink to CLAUDE.md, so
+# both agents share one set of instructions. Agent-specific behavior lives here
+# (and in hooks.json), never in the shared spec.
+
+personality = "friendly"
+
+[features]
+codex_hooks = true
