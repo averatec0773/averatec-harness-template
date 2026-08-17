@@ -2,6 +2,16 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.4.1] - 2026-08-17 — Inline first-commit, attribution default, proactive optimization
+
+### [harness] Added
+- **`## Proactive optimization` rule in `CLAUDE.md`** — when a prompt is incomplete or misses an angle, read for intent and surface a materially better option in a line or two for the user to choose. Scoped tightly to project inception / brainstorming / ambiguous goals; explicitly must **not** interrupt a defined plan or a `/loop` (park ideas in `ROADMAP.md` or the loop's Decisions Log instead).
+- **Commit-attribution step** in the first-commit section — report whether commits credit the AI agent as a contributor and confirm with the user; **default is not to attribute the AI**. Template now ships `includeCoAuthoredBy: false` in `.claude/settings.json`.
+
+### [harness] Changed
+- **First-commit protocol moved from `FIRST_COMMIT.md` into `CLAUDE.md`** as a self-deleting `## First commit (one-time)` section (consumes into a one-line tracking policy in `memory/rules.md`, then deletes itself). `FIRST_COMMIT.md` removed; README tree and Session Start pointer updated.
+- First-commit "sensitive / machine-local" bucket now calls out scripts that read local machine state (e.g. `scripts/refresh-oauth.py` → `~/.claude`) as usable only where those credentials exist.
+
 ## [0.4.0] - 2026-08-17 — Verification, docs convention, first-commit protocol
 
 ### [harness] Added

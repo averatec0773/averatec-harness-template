@@ -22,8 +22,6 @@ Edit `CLAUDE.md` only; `AGENTS.md` follows automatically. Agent-specific behavio
 
 ## Session Start Protocol
 
-> **One-time (fresh template):** before this repo's first real commit, run [FIRST_COMMIT.md](FIRST_COMMIT.md) to decide what to track, ignore, or keep local — then consume it. Skip once real history exists; the protocol removes this line when done.
-
 At the start of every session:
 
 1. Run `git fetch && git status` — confirm the local repo is up to date with remote. If behind, pull before proceeding.
@@ -32,11 +30,31 @@ At the start of every session:
 
 <!-- FILL: Add project-specific checks (e.g., verify a service is running, check env vars). -->
 
+## First commit (one-time)
+
+<!-- Bootstrap, not standing guidance — delete this whole section once the project has its first real commit. -->
+
+Before this repo's first real commit, decide what to track:
+
+1. **Sort files into three buckets** (adapt to what is present):
+   - **Agent / harness** — `CLAUDE.md`, `AGENTS.md`, `.claude/`, `.codex/`, `conventions/`, `memory/`, `loop/`, `docs/`, `ROADMAP.md`, `CHANGELOG.md`: track (shared with the team) or keep private (gitignored, bare-overlay style)?
+   - **Sensitive / machine-local** — `.env*`, credentials, tokens, keys, `*.local.*`, personal data, large binaries, generated output, and scripts that read local machine state (e.g. `scripts/refresh-oauth.py` reads `~/.claude` credentials — useful only on a machine that already has them). Almost always gitignored; confirm none are staged.
+   - **Everything else** — source, config, assets: normally tracked.
+2. **Ask the user, per bucket: track / gitignore / keep local-untracked.** Flag anything surprising (a secret-looking file, a big binary, harness files they may prefer private).
+3. **Check commit attribution.** Report whether commits will credit the AI agent as a contributor (Claude Code: `includeCoAuthoredBy` in `.claude/settings.json`; other agents have their own setting) and confirm with the user. **Default: do not attribute the AI agent as a contributor** — this template ships with `includeCoAuthoredBy: false`.
+4. **Apply and consume.** Update `.gitignore` (`git rm --cached <path>` anything already tracked that should now be ignored); record the outcome as a one-line tracking policy in `memory/rules.md`; then **delete this section**. Preference remembered, bootstrap steps gone.
+
 ## Core Rules
 
 1. Read the skill file before any dangerous or irreversible operation.
 2. Follow conventions. Do not invent new patterns unless explicitly asked.
 3. Read `memory/rules.md` and apply all rules for the duration of this session.
+
+## Proactive optimization (early / ambiguous phases only)
+
+A user's prompt may be incomplete or miss an angle. Read for the **intent** behind the request, and stay aware of options that would serve the project better than the literal ask. When you see a materially better path the user likely hasn't weighed, **surface it in a line or two and let the user choose** — don't silently substitute your own idea, and don't silently drop it.
+
+**Scope this tightly.** It applies during project inception, brainstorming, or when the goal is genuinely ambiguous. Once the user has set a defined plan, a long task, or a `/loop`, do **not** interrupt that continuity with optimization detours — follow the agreed path and park ideas in `ROADMAP.md` or the loop's Decisions Log instead of derailing. When unsure whether you are still in the open phase, default to not interrupting.
 
 ## Verification: reality outranks its description
 

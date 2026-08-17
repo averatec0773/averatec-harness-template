@@ -28,7 +28,6 @@ AGENTS.md                      ← Symlink to CLAUDE.md (read by Codex)
 README.md                      ← This file
 CHANGELOG.md                   ← Project change history
 ROADMAP.md                     ← Versioned plan of pending work
-FIRST_COMMIT.md                ← One-time: track/ignore decisions before first commit (self-consuming)
 
 .claude/
   settings.json                ← Shared permissions + SessionStart hooks
