@@ -2,6 +2,18 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.4.0] - 2026-08-17 — Verification, docs convention, first-commit protocol
+
+### [harness] Added
+- **`## Verification` section in `CLAUDE.md`** — "reality outranks its description": docs/tests are beliefs about the system, green proves self-consistency not correctness, "done" means observed on realistic data. Distilled (project-agnostic) from offeros; closes with an explicit anti-overfit note ("raises the bar on evidence, not caution — check more, don't do less") plus a `FILL` for the project's own cheap way to consult reality.
+- **`docs/` convention** — new `docs/README.md` documents the organizing rule: `docs/` is the default home for any doc an agent writes or reads back; group by kind in subfolders (`docs/specs/`, `docs/plans/`, …) as categories appear rather than piling files in the root. `CLAUDE.md` Docs index entry expanded to match; redundant `docs/.gitkeep` removed.
+- **`FIRST_COMMIT.md`** — one-time, self-consuming protocol run before a project's first real commit: inventory files into agent/harness · sensitive/local · everything-else buckets, ask the user track/ignore/keep-local per bucket, apply to `.gitignore`, then rewrite itself into a terse "Tracking policy" record (and drop its `CLAUDE.md` pointer) so the verbose steps stop loading while the preference is remembered. Gated pointer added to `CLAUDE.md` Session Start Protocol.
+- **Loop infrastructure (full)** — `loop/PROMPT.md` (canonical launch line + usage-budget protocol PART 1 + task protocol, hot-editable between iterations); `scripts/check-usage.sh` (subscription 5h/7d quota check, official API → native offline fallback), `scripts/usage-estimate.py` (native 5h-block token estimator), `scripts/refresh-oauth.py` (refresh the local Claude Code OAuth token). Extends the lightweight loop shipped in 0.3.0.
+
+### [harness] Changed
+- `loop/STATE.md` reworked to **unattended-by-default**: autonomous decisions recorded in a "Decisions Log" with rationale + `[REVIEW]` tags; `DECISION-GATED` items exist only in explicitly-attended loops. `CLAUDE.md` Loop protocol and Index updated to match (adds `loop/PROMPT.md`, `scripts/check-usage.sh`).
+- `README.md` "What's in this template" tree refreshed: added `FIRST_COMMIT.md`, `docs/README.md`, `scripts/refresh-oauth.py`.
+
 ## [0.3.0] - 2026-06-24 — Multi-agent + loop support
 
 ### [harness] Added

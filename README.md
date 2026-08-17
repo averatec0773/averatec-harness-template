@@ -28,6 +28,7 @@ AGENTS.md                      ← Symlink to CLAUDE.md (read by Codex)
 README.md                      ← This file
 CHANGELOG.md                   ← Project change history
 ROADMAP.md                     ← Versioned plan of pending work
+FIRST_COMMIT.md                ← One-time: track/ignore decisions before first commit (self-consuming)
 
 .claude/
   settings.json                ← Shared permissions + SessionStart hooks
@@ -47,7 +48,13 @@ conventions/
   style.md                     ← Visual / UX direction: tokens, components, patterns
 
 loop/
+  PROMPT.md                    ← Loop launch line + usage-budget protocol + task protocol (hot-editable)
   STATE.md                     ← Self-paced /loop state; single source of truth
+
+scripts/
+  check-usage.sh               ← Subscription 5h/7d quota check (official API → native offline fallback)
+  usage-estimate.py            ← Native 5h-block token estimator (no third-party deps)
+  refresh-oauth.py             ← Refresh the local Claude Code OAuth token (reads ~/.claude credentials)
 
 changelog/
   README.md                    ← Archive index for older CHANGELOG series
@@ -56,7 +63,8 @@ memory/
   rules.md                     ← Standing behavioral rules set by the user
   notes.md                     ← Discoveries and manually triggered notes
 
-docs/                          ← Long-form specs, plans, design notes
+docs/                          ← Default home for agent-written docs; group by kind in subfolders
+  README.md                    ← The docs organizing convention
 ```
 
 ### How to use this template

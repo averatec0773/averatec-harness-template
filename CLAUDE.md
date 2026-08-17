@@ -22,6 +22,8 @@ Edit `CLAUDE.md` only; `AGENTS.md` follows automatically. Agent-specific behavio
 
 ## Session Start Protocol
 
+> **One-time (fresh template):** before this repo's first real commit, run [FIRST_COMMIT.md](FIRST_COMMIT.md) to decide what to track, ignore, or keep local — then consume it. Skip once real history exists; the protocol removes this line when done.
+
 At the start of every session:
 
 1. Run `git fetch && git status` — confirm the local repo is up to date with remote. If behind, pull before proceeding.
@@ -36,14 +38,36 @@ At the start of every session:
 2. Follow conventions. Do not invent new patterns unless explicitly asked.
 3. Read `memory/rules.md` and apply all rules for the duration of this session.
 
+## Verification: reality outranks its description
+
+Everything written here — this file, `conventions/`, a docstring, a test name, a brief you were handed — is a **belief about the system, not the system itself**. Docs drift from code: a map can describe features that no longer exist or miss ones that do, a comment can claim a guard the code skips, a green test can lock in a wrong assumption. Use written context as a starting point to verify, not a source of truth to obey blindly — and flag stale-looking content rather than following it off a cliff.
+
+- **Passing tests prove self-consistency, not correctness.** A test written from the same understanding as the code only confirms that understanding. Green is necessary, not sufficient.
+- **"Done" means it did the thing, on realistic data, with the result observed** — not "the gates are green". When you report something works, say which check you actually ran.
+- **Prefer the cheapest real observation over another round of reasoning** — run the code, open the page, read the actual output or rows. Real data carries shapes fixtures don't.
+- **When a written conclusion drives a decision, check what it was measured against and when.** Facts age; conclusions rot faster.
+
+This raises the bar on *evidence*, not on caution: it should make you check more, not do less. Don't manufacture ceremony or refuse to act where a quick look settles it.
+
+<!-- FILL: the project's own cheap, non-destructive way to "consult reality" — e.g. a throwaway-data run, a read-only query, a smoke command. Keep it safe to run repeatedly. -->
+
 ## Loop protocol
 
-When running under a self-paced `/loop`, treat [loop/STATE.md](loop/STATE.md) as the single source of truth:
+Long-running loops are launched with the canonical input at the top of
+[loop/PROMPT.md](loop/PROMPT.md) — a single fixed line that only says "read
+loop/PROMPT.md and run one iteration". All real logic lives in that file, so it
+can be hot-edited between iterations without breaking the wake-up chain.
+[loop/STATE.md](loop/STATE.md) is the single source of truth across iterations:
 
 1. Read STATE first → pick the next actionable item → do it → update its row → stop. The next firing repeats.
-2. **DECISION-GATED items are not implemented** — write a proposal in STATE's "Needs decision" and ask the user.
+2. **Unattended by default** — never ask the user anything mid-loop. Decide
+   autonomously (best confidence × reversal-cost), record every non-obvious
+   decision in STATE's "Decisions Log", tag `[REVIEW]` for later human eyes.
+   Only if the user explicitly requested an *attended* loop do DECISION-GATED
+   items exist: park them under "Decisions Log" as proposals and ask.
 3. Idempotent: never redo a `DONE` item; leave interrupted work as `DOING` with a note on where you stopped.
-4. Stop the loop when every item is `DONE` / `BLOCKED` / `DECISION-GATED`, and report.
+4. Every iteration runs the usage-budget protocol in loop/PROMPT.md PART 1 before any task work.
+5. Stop the loop when every item is `DONE` / `BLOCKED`, and report.
 
 ## Component Map
 
@@ -73,7 +97,9 @@ Quick lookup — "to change X, edit Y." Fill in as the project grows; the goal i
 - [style](conventions/style.md) — visual / UX direction: tokens, components, patterns
 
 ### Loop
+- [loop/PROMPT.md](loop/PROMPT.md) — canonical launch line, usage-budget protocol, task protocol; hot-editable between iterations
 - [loop/STATE.md](loop/STATE.md) — self-paced `/loop` state; single source of truth across iterations
+- [scripts/check-usage.sh](scripts/check-usage.sh) — subscription quota check used by PART 1 (official API first, native offline estimate as fallback)
 
 ### Roadmap & history
 - [ROADMAP](ROADMAP.md) — pending work, by version
@@ -84,4 +110,4 @@ Quick lookup — "to change X, edit Y." Fill in as the project grows; the goal i
 - [notes](memory/notes.md) — discoveries and session notes
 
 ### Docs
-- `docs/` — long-form specs, plans, design notes (organize per project)
+- [docs/](docs/README.md) — **default home for any doc an agent writes or reads back** (specs, plans, notes, research), unless the project defines another location or the user says otherwise. Group by kind in subfolders (`docs/specs/`, `docs/plans/`, …) as categories appear; don't pile files in the root. See [docs/README.md](docs/README.md).

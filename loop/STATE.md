@@ -10,14 +10,18 @@ HOW THE LOOP USES THIS FILE
   (status + a one-line result / commit ref) → stop. The next firing repeats.
 - Idempotent: never redo a DONE item. If interrupted mid-item, leave it DOING with a
   note on where you stopped.
-- DECISION-GATED items are NOT implemented. Write a short proposal under "Needs decision"
-  and ask the user; wait for an answer before touching them.
-- Know when to stop: when every row is DONE / BLOCKED / DECISION-GATED, report and end the loop.
+- UNATTENDED BY DEFAULT: never ask the user mid-loop. Decide autonomously, record
+  every non-obvious decision under "Decisions Log" with one line of rationale, and
+  tag [REVIEW] where a human should double-check later. Keep moving.
+- ATTENDED MODE (only if the user explicitly asked for it): items needing a human
+  call are marked DECISION-GATED, parked under "Decisions Log" as proposals, and
+  not implemented until the user picks.
+- Know when to stop: when every row is DONE / BLOCKED, report and end the loop.
 -->
 
 MODE: <FILL — optional phase flag, e.g. AUDIT | EXECUTE. Delete this line if the loop has no phases.>
 
-Legend — status: `TODO` | `DOING` | `DONE` | `BLOCKED` | `DECISION-GATED`
+Legend — status: `TODO` | `DOING` | `DONE` | `BLOCKED` | `DECISION-GATED` (attended mode only)
 Value / Effort / Risk: `H` | `M` | `L`
 
 ---
@@ -29,10 +33,12 @@ Value / Effort / Risk: `H` | `M` | `L`
 | 1  | FILL: one concrete, independently-shippable task | M | L | L | TODO |
 | 2  | FILL | M | M | L | TODO |
 
-## Needs decision
+## Decisions Log
 
-<!-- DECISION-GATED items live here as short proposals: one paragraph of context +
-     an option list. Do NOT implement until the user picks. -->
+<!-- Unattended mode (default): one line per non-obvious autonomous decision —
+     `[YYYY-MM-DD] <decision> — <rationale>`, tag [REVIEW] if a human should check.
+     Attended mode only: DECISION-GATED proposals live here (context + options);
+     do NOT implement until the user picks. -->
 
 - (none yet)
 
