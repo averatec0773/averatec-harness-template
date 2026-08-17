@@ -1,5 +1,12 @@
 # Project Harness
 
+<!-- SCAFFOLD — one-time template setup; work top to bottom, then delete this block:
+  [ ] Fill Project fields (name / description / stack / owner)
+  [ ] Run "## First commit (one-time)" — tracking + commit attribution — then delete that section
+  [ ] Fill Component Map + every remaining `FILL:` marker
+  [ ] Fill conventions/architecture.md + conventions/style.md
+  List what's left anytime: grep -n "SCAFFOLD\|FILL\|TEMPLATE STATE" CLAUDE.md -->
+
 ## Project
 
 <!-- TEMPLATE STATE: fields below are placeholders. If any field still reads [like this], the harness has not been configured for a real project yet. Do not proceed with project work until these are filled in. -->
@@ -32,7 +39,7 @@ At the start of every session:
 
 ## First commit (one-time)
 
-<!-- Bootstrap, not standing guidance — delete this whole section once the project has its first real commit. -->
+<!-- SCAFFOLD: delete this whole section once the project has its first real commit. -->
 
 Before this repo's first real commit, decide what to track:
 

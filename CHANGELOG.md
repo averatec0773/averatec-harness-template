@@ -2,6 +2,11 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.4.2] - 2026-08-17 — Scaffold marker convention
+
+### [harness] Changed
+- `CLAUDE.md` ephemeral content is now greppable: delete-after content tagged `SCAFFOLD:` (First commit section), replace content stays `FILL:` / `TEMPLATE STATE:`. Added a top-of-file `SCAFFOLD` setup checklist listing the one-time tasks, ending with `grep -n "SCAFFOLD\|FILL\|TEMPLATE STATE" CLAUDE.md` to list what's left. Convention kept in-file, not in the harness skill.
+
 ## [0.4.1] - 2026-08-17 — Inline first-commit, attribution default, proactive optimization
 
 ### [harness] Added
