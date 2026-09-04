@@ -2,6 +2,12 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.4.3] - 2026-09-04 — Project-first template setup
+
+### [harness] Changed
+- `CLAUDE.md` setup now begins with a **Keep / Adapt / Delete** review based on the real project. Irrelevant stubs should be removed rather than force-fit; deletions and renames must repair references.
+- `README.md` now mirrors the project-first setup flow, and placeholder Make targets no longer point to nonexistent setup/deploy skills.
+
 ## [0.4.2] - 2026-08-17 — Scaffold marker convention
 
 ### [harness] Changed

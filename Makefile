@@ -7,7 +7,7 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-15s %s\n", $$1, $$2}'
 
 setup: ## Set up local development environment
-	@echo "See skills/setup/SKILL.md for setup instructions"
+	@echo "Replace with your setup command"
 
 test: ## Run tests
 	@echo "Replace with your test command"
@@ -15,8 +15,8 @@ test: ## Run tests
 build: ## Build the project
 	@echo "Replace with your build command"
 
-deploy: ## Deploy (read skills/deploy/SKILL.md first)
-	@echo "See skills/deploy/SKILL.md before deploying"
+deploy: ## Deploy the project
+	@echo "Replace with your deploy command"
 
 clean: ## Clean build artifacts
 	@echo "Replace with your clean command"

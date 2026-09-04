@@ -1,22 +1,23 @@
 # Project Harness
 
 <!-- SCAFFOLD — one-time template setup; work top to bottom, then delete this block:
+  [ ] Run "## Template fit (one-time)" — keep / adapt / delete based on the real project
   [ ] Fill Project fields (name / description / stack / owner)
   [ ] Run "## First commit (one-time)" — tracking + commit attribution — then delete that section
-  [ ] Fill Component Map + every remaining `FILL:` marker
-  [ ] Fill conventions/architecture.md + conventions/style.md
+  [ ] Fill Component Map + every remaining `FILL:` marker in retained files
+  [ ] Fill retained conventions/architecture.md + conventions/style.md; delete either if irrelevant
   List what's left anytime: grep -n "SCAFFOLD\|FILL\|TEMPLATE STATE" CLAUDE.md -->
 
 ## Project
 
-<!-- TEMPLATE STATE: fields below are placeholders. If any field still reads [like this], the harness has not been configured for a real project yet. Do not proceed with project work until these are filled in. -->
+<!-- TEMPLATE STATE: fields below are placeholders. Run "## Template fit (one-time)" first. If any retained field still reads [like this], the harness has not been configured for a real project yet. -->
 
 **Name:** [PROJECT_NAME]
 **Description:** [What this project does]
 **Stack:** [Language / framework / infra]
 **Owner:** [Team or person]
 
-> All files except `README.md` are agent instructions. Treat them as authoritative.
+> Template files are starting points, not required project features. During setup, keep, adapt, or delete them based on the real project; afterward, treat all retained files except `README.md` as authoritative.
 
 ## Agents
 
@@ -26,6 +27,17 @@ This harness is read by multiple AI agents from **one shared spec**:
 - **Codex** reads `AGENTS.md` — a symlink to `CLAUDE.md`, so both agents get identical instructions — plus `.codex/` (`config.toml`, `hooks.json`).
 
 Edit `CLAUDE.md` only; `AGENTS.md` follows automatically. Agent-specific behavior lives in config (`.claude/` vs `.codex/`), never in the shared spec.
+
+## Template fit (one-time)
+
+<!-- SCAFFOLD: delete this whole section once the template fits the real project. -->
+
+Before filling placeholders, inspect the actual source, configs, docs, tests/CI, history, development workflow, and intended Claude/Codex usage. A template file is not evidence that its capability exists or is needed.
+
+1. **Keep / adapt / delete.** Classify each template file or tightly coupled group. Keep only what has a real ongoing purpose; rewrite useful parts around the actual workflow; delete irrelevant stubs instead of inventing a use for them.
+2. **Preserve meaning.** If a file's purpose changes, rename or fully rewrite it. Do not repurpose a file merely because a tool auto-loads it.
+3. **Repair references.** After a deletion or rename, update the Component Map, Index, README tree, settings/hooks, scripts, and links; verify documented commands against the repository.
+4. **Apply and consume.** Fill markers only in retained files, record durable rules in `memory/rules.md` if retained, then delete this section.
 
 ## Session Start Protocol
 
@@ -41,10 +53,10 @@ At the start of every session:
 
 <!-- SCAFFOLD: delete this whole section once the project has its first real commit. -->
 
-Before this repo's first real commit, decide what to track:
+After adapting the template and before this repo's first real commit, decide what to track:
 
 1. **Sort files into three buckets** (adapt to what is present):
-   - **Agent / harness** — `CLAUDE.md`, `AGENTS.md`, `.claude/`, `.codex/`, `conventions/`, `memory/`, `loop/`, `docs/`, `ROADMAP.md`, `CHANGELOG.md`: track (shared with the team) or keep private (gitignored, bare-overlay style)?
+   - **Agent / harness** — whichever of `CLAUDE.md`, `AGENTS.md`, `.claude/`, `.codex/`, `conventions/`, `memory/`, `loop/`, `docs/`, `ROADMAP.md`, and `CHANGELOG.md` remain: track (shared with the team) or keep private (gitignored, bare-overlay style)?
    - **Sensitive / machine-local** — `.env*`, credentials, tokens, keys, `*.local.*`, personal data, large binaries, generated output, and scripts that read local machine state (e.g. `scripts/refresh-oauth.py` reads `~/.claude` credentials — useful only on a machine that already has them). Almost always gitignored; confirm none are staged.
    - **Everything else** — source, config, assets: normally tracked.
 2. **Ask the user, per bucket: track / gitignore / keep local-untracked.** Flag anything surprising (a secret-looking file, a big binary, harness files they may prefer private).
