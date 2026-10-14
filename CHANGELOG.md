@@ -7,7 +7,7 @@
 Lessons from running the harness on nivalis-nights-wiki for two weeks, plus research on how people run status files, agent memory and decision questions.
 
 ### [harness] Added
-- `modules/` (template only): optional parts copied onto the project root during setup, then deleted. First module `ui` (`conventions/style.md`, now with "this file wins over design skills", surface modes, token reasons, a Checks section, and optional external skills listed as untested). Candidates listed in `modules/README.md` until proven.
+- `modules/` (template only): optional parts copied onto the project root during setup, then deleted. First module `ui` (`conventions/style.md`, now with "this file wins over design skills", surface modes, token reasons, a Checks section, and optional external skills listed as untested).
 - `docs/status.md`: board of open work across sessions, one row per item, deleted when committed; CLAUDE.md "Parallel work" (rows before shared edits, message running sessions, reconcile stale rows at start, explicit-path staging).
 - CLAUDE.md "Working with the owner": outcome-first reports, ask only at real forks, decision cards (Result / Change / Cost per option), numbering rule, explicit answers only.
 - `.claude/skills/harness/references/agent-brief.md` and `.claude/scripts/precheck.sh` (fails with "NO CHECKS" until filled).

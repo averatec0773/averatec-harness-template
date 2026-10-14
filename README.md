@@ -59,7 +59,7 @@ docs/                          ← Default home for agent-written docs; group by
   status.md                    ← Board of open work across sessions (rows, not a log)
 
 modules/                       ← Template only: optional parts, copied in during setup, then deleted
-  README.md                    ← Module list and candidates
+  README.md                    ← Module list
   ui/                          ← conventions/style.md for projects with a UI
 ```
 
