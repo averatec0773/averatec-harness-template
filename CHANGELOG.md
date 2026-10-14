@@ -2,6 +2,26 @@
 
 <!-- Format: [YYYY-MM-DD] vX.X.X — description -->
 
+## [0.5.0] - 2026-10-14 — Modules, status board, owner-approved memory
+
+Lessons from running the harness on nivalis-nights-wiki for two weeks, plus research on how people run status files, agent memory and decision questions.
+
+### [harness] Added
+- `modules/` (template only): optional parts copied onto the project root during setup, then deleted. First module `ui` (`conventions/style.md`, now with "this file wins over design skills", surface modes, token reasons, a Checks section, and optional external skills listed as untested). Candidates listed in `modules/README.md` until proven.
+- `docs/status.md`: board of open work across sessions, one row per item, deleted when committed; CLAUDE.md "Parallel work" (rows before shared edits, message running sessions, reconcile stale rows at start, explicit-path staging).
+- CLAUDE.md "Working with the owner": outcome-first reports, ask only at real forks, decision cards (Result / Change / Cost per option), numbering rule, explicit answers only.
+- `.claude/skills/harness/references/agent-brief.md` and `.claude/scripts/precheck.sh` (fails with "NO CHECKS" until filled).
+
+### [harness] Changed
+- Memory: rules only with the owner's approval of the wording; decisions go to plan docs / commits; gotchas to notes or the area's skill; `rules.md` under ~40 lines. The memory skill is folded into the harness skill.
+- Settings: `attribution` (empty commit / pr) replaces deprecated `includeCoAuthoredBy`; `autoMemoryEnabled: false` so repo `memory/` is the one memory.
+- Setup is "pick modules, then keep / adapt / delete"; harness skill rewritten (checklist by moment, release, memory, skills); git skill adds precheck, explicit-path staging, status-row cleanup.
+- `docs/README.md`: plans carry `Status:` and decisions, done plans move to `archive/<yyyy-mm>/`.
+
+### [harness] Removed
+- `loop/`, `scripts/check-usage.sh`, `usage-estimate.py`, `refresh-oauth.py` (macOS-only, undocumented usage endpoint, touched login credentials; never used).
+- `.claude/skills/memory/` (into harness), `.claude/skills/skill-creator/` (use the global one), `Makefile` (precheck.sh), local `TODO.md` stub (ROADMAP + status board).
+
 ## [0.4.3] - 2026-09-04 — Project-first template setup
 
 ### [harness] Changed

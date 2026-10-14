@@ -14,6 +14,15 @@ a dedicated location or the user says otherwise.
   one-off note can sit in the root until a second sibling makes a folder worth it.
 - **Name files for their content**, dated when ordering matters:
   `docs/plans/2026-08-17-auth-rework.md`.
+- **Plans open with a `Status:` line** (proposed / approved / done / superseded) and list the
+  owner's decisions as they are made. When a plan is done, move its leftover open items to
+  `ROADMAP.md` and the plan to `archive/<yyyy-mm>/`.
+
+## Status board
+
+[`status.md`](status.md) lists open work across sessions, one row per item; rows are deleted
+when the item is committed. It is not a log: history lives in git, `CHANGELOG.md` and plans.
+Rules: CLAUDE.md "Parallel work".
 
 ## Suggested subfolders (create as needed)
 
@@ -23,5 +32,6 @@ a dedicated location or the user says otherwise.
 | `plans/` | Implementation plans, step sequences |
 | `notes/` | Investigations, findings, design rationale |
 | `research/` | External research, comparisons, references |
+| `archive/<yyyy-mm>/` | Finished plans and notes, read-only |
 
 These are conventions, not requirements — rename or add folders to fit the project.

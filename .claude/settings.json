@@ -1,10 +1,16 @@
 {
-  "includeCoAuthoredBy": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "autoMemoryEnabled": false,
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [],
     "deny": [
-      "Read(./.env*)",
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.*.local)",
       "Bash(rm -rf *)",
       "Bash(git push --force*)"
     ]

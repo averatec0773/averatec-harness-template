@@ -27,16 +27,18 @@ CLAUDE.md                      ← Entry point, auto-read by Claude Code
 AGENTS.md                      ← Symlink to CLAUDE.md (read by Codex)
 README.md                      ← This file
 CHANGELOG.md                   ← Project change history
-ROADMAP.md                     ← Versioned plan of pending work
+ROADMAP.md                     ← Versioned plan of open work
+.env.example                   ← Environment variable template
 
 .claude/
-  settings.json                ← Shared permissions + SessionStart hooks
+  settings.json                ← Shared permissions, attribution off, auto memory off, SessionStart hooks
   settings.local.json.example  ← Personal-override template (copied on first session)
+  scripts/
+    precheck.sh                ← One command for the pre-commit checks (ALL PASS / FAILED)
   skills/                      ← Auto-loaded by Claude Code
     git/                       ← Commit risk classification + pre-commit checklist
-    harness/                   ← Keep CHANGELOG / ROADMAP / conventions in sync
-    memory/                    ← When and how to update memory files
-    skill-creator/             ← How to create and improve skills
+    harness/                   ← CHANGELOG / ROADMAP / conventions sync, status board, memory, skills
+      references/agent-brief.md ← Standard block pasted into every subagent prompt
 
 .codex/
   config.toml                  ← Codex agent config
@@ -44,32 +46,27 @@ ROADMAP.md                     ← Versioned plan of pending work
 
 conventions/
   architecture.md              ← Directory map, layering rules, what NOT to change
-  style.md                     ← Visual / UX direction: tokens, components, patterns
-
-loop/
-  PROMPT.md                    ← Loop launch line + usage-budget protocol + task protocol (hot-editable)
-  STATE.md                     ← Self-paced /loop state; single source of truth
-
-scripts/
-  check-usage.sh               ← Subscription 5h/7d quota check (official API → native offline fallback)
-  usage-estimate.py            ← Native 5h-block token estimator (no third-party deps)
-  refresh-oauth.py             ← Refresh the local Claude Code OAuth token (reads ~/.claude credentials)
 
 changelog/
   README.md                    ← Archive index for older CHANGELOG series
 
 memory/
-  rules.md                     ← Standing behavioral rules set by the user
-  notes.md                     ← Discoveries and manually triggered notes
+  rules.md                     ← Standing rules the owner approved
+  notes.md                     ← Cross-cutting gotchas
 
 docs/                          ← Default home for agent-written docs; group by kind in subfolders
   README.md                    ← The docs organizing convention
+  status.md                    ← Board of open work across sessions (rows, not a log)
+
+modules/                       ← Template only: optional parts, copied in during setup, then deleted
+  README.md                    ← Module list and candidates
+  ui/                          ← conventions/style.md for projects with a UI
 ```
 
 ### How to use this template
 
 1. Create a new repo from this template. (If you `cp` it rather than using GitHub's "Use this template", copy with symlink preservation — `cp -a` — so `AGENTS.md → CLAUDE.md` survives. Git needs `core.symlinks=true`; Windows needs Developer Mode.)
-2. Before filling placeholders, have the AI inspect the real project and classify each template file or coupled group as **Keep**, **Adapt**, or **Delete**. Delete irrelevant stubs; don't invent a use for them.
+2. Have the AI inspect the real project, pick the modules it needs from `modules/` (copy them onto the root, then delete `modules/`), and classify each remaining file as **Keep**, **Adapt**, or **Delete**. Delete irrelevant stubs; don't invent a use for them.
 3. Replace `[placeholder]` and `FILL` fields only in retained files. Update retained skills with the project's real workflow; after a deletion or rename, repair the Component Map, Index, README tree, hooks, scripts, and links.
 4. Remove the one-time setup sections and replace this "About this template" section with the project's own documentation.
 5. At the start of each AI session, point the AI developer to `CLAUDE.md` (Claude Code) or `AGENTS.md` (Codex).

@@ -4,6 +4,8 @@
 > **Read this** before generating a component, page, color, font choice, or any styled output. If a generated artifact does not match this direction, it is wrong even if the code is correct.
 >
 > This is **direction**, not pixel-perfect spec. It tells you the shape of the right answer; it does not pre-decide every screen.
+>
+> **This file wins** over any installed design skill or generic taste advice. Refining a surface keeps its look; a redesign replaces it, and happens only when the owner asks for one.
 
 <!-- TEMPLATE STATE: every section below contains FILL placeholders. Replace them as the project finds its visual identity. Sections that genuinely do not apply (e.g. no UI in a CLI project) — delete them, do not leave them as stubs. -->
 
@@ -18,6 +20,13 @@
 **Anti-patterns** (what this project must NOT look like):
 
 - FILL: list the aesthetic traps to avoid. Examples: shadcn beige, Bootstrap drop-shadows, Material ripples, glassmorphism, pastel marketing palettes, AI-generic gradient hero.
+- FILL: AI-default looks seen in this project's own generated output (add them as they show up; generic lists go stale as models change).
+
+**Surface modes** — what each kind of page is for decides how much flourish it gets:
+
+| Page type | Mode (read / operate / persuade) | Implication |
+|---|---|---|
+| FILL | FILL | FILL (e.g. "read: long text, quiet chrome, no motion") |
 
 ---
 
@@ -39,18 +48,18 @@ FILL: describe the dominant layout pattern. If it's a web UI, sketch the primary
 
 Every color used in code must come from a token. Inline hex literals are a smell.
 
-| Token | Value | Used for |
-|---|---|---|
-| `--bg-base` | FILL | Window / page background |
-| `--bg-elevated` | FILL | Cards, panels |
-| `--text-primary` | FILL | Titles, primary content |
-| `--text-secondary` | FILL | Subtitles, secondary metadata |
-| `--text-tertiary` | FILL | Disabled, placeholder |
-| `--border-subtle` | FILL | Dividers, separators |
-| `--accent` | FILL | Primary CTAs, selection, brand highlight |
-| `--accent-soft` | FILL | Hover trails, subtle accent backgrounds |
-| `--danger` | FILL | Destructive actions, errors |
-| `--success` | FILL | Confirmation, success states |
+| Token | Value | Used for | Why this value |
+|---|---|---|---|
+| `--bg-base` | FILL | Window / page background | FILL |
+| `--bg-elevated` | FILL | Cards, panels | FILL |
+| `--text-primary` | FILL | Titles, primary content | FILL |
+| `--text-secondary` | FILL | Subtitles, secondary metadata | FILL |
+| `--text-tertiary` | FILL | Disabled, placeholder | FILL |
+| `--border-subtle` | FILL | Dividers, separators | FILL |
+| `--accent` | FILL | Primary CTAs, selection, brand highlight | FILL |
+| `--accent-soft` | FILL | Hover trails, subtle accent backgrounds | FILL |
+| `--danger` | FILL | Destructive actions, errors | FILL |
+| `--success` | FILL | Confirmation, success states | FILL |
 
 **Token location**: FILL — where these are defined (`app/globals.css`, `tailwind.config.ts`, `tokens.ts`, etc.).
 
@@ -126,7 +135,15 @@ Things deliberately deferred — list them so future contributors know not to in
 
 ---
 
-## 9. When to update this file
+## 9. Checks
+
+A rule a script can check (raw hex outside the token file, off-grid spacing, missing focus styles, contrast) goes into `.claude/scripts/precheck.sh` instead of staying prose here; prose rules alone are often not followed.
+
+- FILL: the checks this project runs, or "none yet".
+
+---
+
+## 10. When to update this file
 
 Update when:
 
